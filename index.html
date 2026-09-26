@@ -1652,6 +1652,7 @@
       item.setAttribute('data-item-id', itemId);
       item.style.pointerEvents = 'none';
       item.onerror = () => {
+        showAlert("남겨진 것들을 살펴보는 중이다.");
         item.remove();
       };
 
