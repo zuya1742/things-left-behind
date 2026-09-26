@@ -26,11 +26,11 @@
       justify-content: center;
       align-items: center;
       font-family: 'Galmuri7', sans-serif;
-      cursor: url('DD_1/dd_cursor1.png'), auto;
+      cursor: url('dd_1/dd_cursor1.png'), auto;
     }
 
     html:active, body:active {
-      cursor: url('DD_1/dd_cursor2.png'), auto !important;
+      cursor: url('dd_1/dd_cursor2.png'), auto !important;
     }
 
     /* 1920x1080 고정 캔버스 컨테이너 */
@@ -41,11 +41,11 @@
       overflow: hidden;
       transform-origin: center center;
       background-color: #000000;
-      cursor: url('DD_1/dd_cursor1.png'), auto;
+      cursor: url('dd_1/dd_cursor1.png'), auto;
     }
 
     #canvas-container:active {
-      cursor: url('DD_1/dd_cursor2.png'), auto !important;
+      cursor: url('dd_1/dd_cursor2.png'), auto !important;
     }
 
     /* 배경 이미지 */
@@ -93,12 +93,12 @@
       image-rendering: pixelated;
       image-rendering: crisp-edges;
       z-index: 10;
-      cursor: url('DD_1/dd_cursor1-1.png'), pointer !important;
+      cursor: url('dd_1/dd_cursor1-1.png'), pointer !important;
     }
 
     #bed-img:active {
       filter: brightness(0.75);
-      cursor: url('DD_1/dd_cursor2.png'), pointer !important;
+      cursor: url('dd_1/dd_cursor2.png'), pointer !important;
     }
 
     /* 침대 바로 위 중앙 링 이미지 */
@@ -138,12 +138,12 @@
       image-rendering: pixelated;
       image-rendering: crisp-edges;
       animation: messageFloat 3s ease-in-out infinite;
-      cursor: url('DD_1/dd_cursor1-1.png'), pointer !important;
+      cursor: url('dd_1/dd_cursor1-1.png'), pointer !important;
       transition: opacity 0.4s ease;
     }
 
     #message-trigger:active {
-      cursor: url('DD_1/dd_cursor2.png'), pointer !important;
+      cursor: url('dd_1/dd_cursor2.png'), pointer !important;
     }
 
     @keyframes messageFloat {
@@ -187,7 +187,7 @@
       white-space: pre-wrap;
       word-break: keep-all;
       overflow-y: auto;
-      cursor: url('DD_1/dd_cursor1.png'), auto;
+      cursor: url('dd_1/dd_cursor1.png'), auto;
     }
 
     #message-popup.show {
@@ -235,11 +235,11 @@
       transform-origin: center center;
       transform: translate(-50%, -50%) scale(2.4);
       transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-      cursor: url('DD_1/dd_cursor1-1.png'), pointer !important;
+      cursor: url('dd_1/dd_cursor1-1.png'), pointer !important;
     }
 
     .dropped-item:active {
-      cursor: url('DD_1/dd_cursor2.png'), pointer !important;
+      cursor: url('dd_1/dd_cursor2.png'), pointer !important;
     }
 
     .dropped-item.shaking {
@@ -283,12 +283,12 @@
     }
 
     #item-menu .menu-item {
-      cursor: url('DD_1/dd_cursor1-1.png'), pointer !important;
+      cursor: url('dd_1/dd_cursor1-1.png'), pointer !important;
       padding: 2px 4px;
     }
 
     #item-menu .menu-item:active {
-      cursor: url('DD_1/dd_cursor2.png'), pointer !important;
+      cursor: url('dd_1/dd_cursor2.png'), pointer !important;
     }
 
     #item-menu .menu-item:hover {
@@ -434,7 +434,7 @@
 
     .index-title, .tree-title, .tree-leaf {
       position: relative;
-      cursor: url('DD_1/dd_cursor1-1.png'), pointer !important;
+      cursor: url('dd_1/dd_cursor1-1.png'), pointer !important;
       user-select: none;
       box-sizing: border-box;
       display: flex;
@@ -442,7 +442,7 @@
     }
 
     .index-title:active, .tree-title:active, .tree-leaf:active {
-      cursor: url('DD_1/dd_cursor2.png'), pointer !important;
+      cursor: url('dd_1/dd_cursor2.png'), pointer !important;
     }
 
     .index-title::before,
@@ -830,7 +830,7 @@
       height: 30px;
       background-color: transparent;
       border: none;
-      cursor: url('DD_1/dd_cursor1-1.png'), pointer !important;
+      cursor: url('dd_1/dd_cursor1-1.png'), pointer !important;
       position: relative;
       display: flex;
       align-items: center;
@@ -839,7 +839,7 @@
     }
 
     #letter-btn:active {
-      cursor: url('DD_1/dd_cursor2.png'), pointer !important;
+      cursor: url('dd_1/dd_cursor2.png'), pointer !important;
     }
 
     #letter-btn img {
@@ -858,7 +858,7 @@
       height: 30px;
       background-color: transparent;
       border: none;
-      cursor: url('DD_1/dd_cursor1-1.png'), pointer !important;
+      cursor: url('dd_1/dd_cursor1-1.png'), pointer !important;
       position: relative;
       display: flex;
       align-items: center;
@@ -867,7 +867,7 @@
     }
 
     #toggle-btn:active {
-      cursor: url('DD_1/dd_cursor2.png'), pointer !important;
+      cursor: url('dd_1/dd_cursor2.png'), pointer !important;
     }
 
     #toggle-btn img {
@@ -884,13 +884,13 @@
 <body>
 
   <div id="canvas-container">
-    <img id="bg-img" src="DD_1/DD_background.png" alt="Background">
+    <img id="bg-img" src="dd_1/dd_background.png" alt="Background">
     <div id="screen-overlay"></div>
-    <img id="bed-img" src="DD_1/DD_bed.png" alt="DD Bed">
-    <img id="ring-img" src="DD_1/dd_ring.png" alt="Ring">
+    <img id="bed-img" src="dd_1/dd_bed.png" alt="DD Bed">
+    <img id="ring-img" src="dd_1/dd_ring.png" alt="Ring">
     
     <!-- 첫 화면 이미지 트리거 -->
-    <img id="message-trigger" src="DD_1/dd_message_animation/1.png" alt="Message Trigger">
+    <img id="message-trigger" src="dd_1/dd_message_animation/1.png" alt="Message Trigger">
 
     <!-- 팝업창 -->
     <div id="message-popup">유서
@@ -924,11 +924,11 @@
 
     <!-- 박스 레이어 (z-index: 100) -->
     <div id="box-panel">
-      <img id="box-bg-img" src="DD_1/DD_box.png" alt="Box Background">
+      <img id="box-bg-img" src="dd_1/dd_box.png" alt="Box Background">
 
       <div id="inner-box">
         <div id="index-group">
-          <img id="index-bg-img" src="DD_1/DD_index.png" alt="Index Background">
+          <img id="index-bg-img" src="dd_1/dd_index.png" alt="Index Background">
 
           <div class="index-container">
             <div class="index-scroll-area">
@@ -980,7 +980,7 @@
       </div>
     </div>
 
-    <img id="dd-note-img" src="DD_1/DD_note.png" alt="DD Note">
+    <img id="dd-note-img" src="dd_1/dd_note.png" alt="DD Note">
 
     <div class="detail-right-note-wrapper" id="detail-right-note">
       <div id="item-section">
@@ -1002,10 +1002,10 @@
     <!-- 하단 바 -->
     <div id="bottom-bar">
       <button id="letter-btn" aria-label="메시지 다시 보기">
-        <img src="DD_1/dd_letter.png" alt="Letter">
+        <img src="dd_1/dd_letter.png" alt="Letter">
       </button>
       <button id="toggle-btn" aria-label="박스 패널 열기">
-        <img src="DD_1/dd_boxmenu.png" alt="Box Menu">
+        <img src="dd_1/dd_boxmenu.png" alt="Box Menu">
       </button>
     </div>
   </div>
@@ -1079,7 +1079,7 @@
     const messageAnimationFrames = [];
     for (let i = 1; i <= 5; i++) {
       const img = new Image();
-      img.src = `DD_1/dd_message_animation/${i}.png`;
+      img.src = `dd_1/dd_message_animation/${i}.png`;
       messageAnimationFrames.push(img);
     }
 
@@ -1090,11 +1090,11 @@
 
       let currentFrame = 0;
       const frames = [
-        'DD_1/dd_message_animation/1.png',
-        'DD_1/dd_message_animation/2.png',
-        'DD_1/dd_message_animation/3.png',
-        'DD_1/dd_message_animation/4.png',
-        'DD_1/dd_message_animation/5.png'
+        'dd_1/dd_message_animation/1.png',
+        'dd_1/dd_message_animation/2.png',
+        'dd_1/dd_message_animation/3.png',
+        'dd_1/dd_message_animation/4.png',
+        'dd_1/dd_message_animation/5.png'
       ];
 
       const frameInterval = setInterval(() => {
@@ -1166,7 +1166,7 @@
 
     async function loadExcelData() {
       try {
-        const response = await fetch(`DD_1/DD_list.xlsx?t=${Date.now()}`);
+        const response = await fetch(`dd_1/dd_list.xlsx?t=${Date.now()}`);
         if (!response.ok) throw new Error('Excel 파일 로드 실패');
         
         const arrayBuffer = await response.arrayBuffer();
@@ -1220,7 +1220,7 @@
         itemList = [];
         for (const item of fullDataStore) {
           if (!item.id) continue;
-          const imgPath = `DD_1/DD_image/${item.id}.png`;
+          const imgPath = `dd_1/dd_image/${item.id}.png`;
           const exists = await checkImageExists(imgPath);
           if (exists) {
             itemList.push(imgPath);
@@ -1230,7 +1230,7 @@
         remainingItemList = [...itemList];
         renderCategoryTrees(categoryMap);
       } catch (error) {
-        console.warn('DD_list.xlsx 로드 또는 파싱 실패:', error);
+        console.warn('dd_list.xlsx 로드 또는 파싱 실패:', error);
       }
     }
 
@@ -1487,10 +1487,10 @@
       statusSale.textContent = data.sale === 'o' ? '판매 가능' : (data.sale === 'x' ? '판매 금지' : '');
       if (saleIcon) {
         if (data.sale === 'o') {
-          saleIcon.src = 'DD_1/dd_icon/sell_o.png';
+          saleIcon.src = 'dd_1/dd_icon/sell_o.png';
           saleIcon.style.display = 'block';
         } else if (data.sale === 'x') {
-          saleIcon.src = 'DD_1/dd_icon/sell_x.png';
+          saleIcon.src = 'dd_1/dd_icon/sell_x.png';
           saleIcon.style.display = 'block';
         } else {
           saleIcon.src = '';
@@ -1501,11 +1501,11 @@
       statusSecondGift.textContent = data.secondGift === 'o' ? '2차 증여 가능' : (data.secondGift === 'x' ? '2차 증여 금지' : '');
       if (secondGiftIcon) {
         if (data.secondGift === 'o') {
-          secondGiftIcon.src = 'DD_1/dd_icon/give_o.png';
+          secondGiftIcon.src = 'dd_1/dd_icon/give_o.png';
           secondGiftIcon.style.display = 'block';
         } else if (data.secondGift === 'x') {
-          secondGiftIcon.src = 'DD_1/dd_icon/give_x.png';
-          secondGiftIcon.style.display = 'block'; // 오타 수정 완료
+          secondGiftIcon.src = 'dd_1/dd_icon/give_x.png';
+          secondGiftIcon.style.display = 'block';
         } else {
           secondGiftIcon.src = '';
           secondGiftIcon.style.display = 'none';
@@ -1515,7 +1515,7 @@
       statusDiscard.textContent = data.discardable === 'o' ? '버리기 가능' : (data.discardable === 'x' ? '버리기 금지' : '');
       if (discardIcon) {
         if (data.discardable === 'x') {
-          discardIcon.src = 'DD_1/dd_icon/trash_x.png';
+          discardIcon.src = 'dd_1/dd_icon/trash_x.png';
           discardIcon.style.display = 'block';
         } else {
           discardIcon.src = '';
@@ -1533,7 +1533,7 @@
 
       const imgElem = document.getElementById('view-image');
       if (data.id) {
-        imgElem.src = `DD_1/DD_image/${data.id}.png`;
+        imgElem.src = `dd_1/dd_image/${data.id}.png`;
         imgElem.style.display = 'block';
       } else {
         imgElem.style.display = 'none';
