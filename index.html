@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Things left behind</title>
-  <!-- 갈무리 폰트 불러오기 (Galmuri7, Galmuri9, Galmuri11)[cite: 16] -->
+  <!-- 갈무리 폰트 불러오기 (Galmuri7, Galmuri9, Galmuri11)[cite: 13] -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css">
-  <!-- Excel 파싱용 SheetJS 라이브러리[cite: 16] -->
+  <!-- Excel 파싱용 SheetJS 라이브러리[cite: 13] -->
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 
   <style>
@@ -33,7 +33,7 @@
       cursor: url('dd_cursor2.png') 0 0, auto !important;
     }
 
-    /* 1920x1080 고정 캔버스 컨테이너[cite: 16] */
+    /* 1920x1080 고정 캔버스 컨테이너[cite: 13] */
     #canvas-container {
       position: absolute;
       width: 1920px;
@@ -48,7 +48,7 @@
       cursor: url('dd_cursor2.png') 0 0, auto !important;
     }
 
-    /* 배경 이미지[cite: 16] */
+    /* 배경 이미지[cite: 13] */
     #bg-img {
       position: absolute;
       top: 50%;
@@ -61,7 +61,7 @@
       pointer-events: none;
     }
 
-    /* 1. 화면 전체 검정 투명도 70% 오버레이 사각형[cite: 16] */
+    /* 1. 화면 전체 검정 투명도 70% 오버레이 사각형[cite: 13] */
     #screen-overlay {
       position: absolute;
       top: 0;
@@ -79,7 +79,7 @@
       opacity: 0.7;
     }
 
-    /* 중앙 침대 이미지[cite: 16] */
+    /* 중앙 침대 이미지[cite: 13] */
     #bed-img {
       position: absolute;
       top: 50%;
@@ -101,7 +101,7 @@
       cursor: url('dd_cursor2.png') 0 0, pointer !important;
     }
 
-    /* 침대 바로 위 중앙 링 이미지[cite: 16] */
+    /* 침대 바로 위 중앙 링 이미지[cite: 13] */
     #ring-img {
       position: absolute;
       left: 50%;
@@ -125,7 +125,7 @@
       }
     }
 
-    /* 첫 화면 이미지 트리거 위치[cite: 16] */
+    /* 첫 화면 이미지 트리거 위치[cite: 13] */
     #message-trigger {
       position: absolute;
       left: 960px;
@@ -160,7 +160,7 @@
       pointer-events: none;
     }
 
-    /* 팝업창 스타일[cite: 16] */
+    /* 팝업창 스타일[cite: 13] */
     #message-popup {
       position: absolute;
       left: 50%;
@@ -195,7 +195,7 @@
       pointer-events: auto;
     }
 
-    /* 경고 텍스트 박스[cite: 16] */
+    /* 경고 텍스트 박스[cite: 13] */
     #alert-box {
       position: absolute;
       top: calc(28% - 63px);
@@ -224,7 +224,7 @@
       transition: none;
     }
 
-    /* 드랍되는 유품 아이템[cite: 16] */
+    /* 드랍되는 유품 아이템[cite: 13] */
     .dropped-item {
       position: absolute;
       width: auto;
@@ -233,7 +233,7 @@
       image-rendering: crisp-edges;
       z-index: 20;
       transform-origin: center center;
-      transform: translate(-50%, -50%) scale(0.1);
+      transform: translate(-50%, -50%) scale(0.3);
       transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
       cursor: url('dd_cursor1-1.png') 0 0, pointer !important;
     }
@@ -252,7 +252,7 @@
       40%, 80% { transform: translate(-50%, -50%) translate(var(--drop-x), var(--drop-y)) scale(2.4) rotate(var(--rot)) translateX(3px); }
     }
 
-    /* 마우스 호버 툴팁 박스[cite: 16] */
+    /* 마우스 호버 툴팁 박스[cite: 13] */
     #item-tooltip {
       position: absolute;
       background-color: rgba(0, 0, 0, 0.85);
@@ -267,7 +267,7 @@
       white-space: nowrap;
     }
 
-    /* 아이템 클릭 시 우하단에 뜨는 메뉴[cite: 16] */
+    /* 아이템 클릭 시 우하단에 뜨는 메뉴[cite: 13] */
     #item-menu {
       position: absolute;
       background-color: rgba(0, 0, 0, 0.85);
@@ -295,7 +295,7 @@
       background-color: rgba(255, 255, 255, 0.2);
     }
 
-    /* 슬라이드 박스 패널 (z-index: 100)[cite: 16] */
+    /* 슬라이드 박스 패널 (z-index: 100)[cite: 13] */
     #box-panel {
       position: absolute;
       top: 515px; 
@@ -339,7 +339,7 @@
       z-index: 2;
     }
 
-    /* "선물받음" 뱃지 스타일[cite: 16] */
+    /* "선물받음" 뱃지 스타일[cite: 13] */
     #gift-badge {
       position: absolute;
       top: 40.4px;
@@ -589,7 +589,7 @@
       width: 100%;
     }
 
-    /* 팝업 아이템 이미지 위치 스타일[cite: 16] */
+    /* 팝업 아이템 이미지 위치 스타일[cite: 13] */
     .item-image-wrapper {
       position: absolute;
       top: 425px;
@@ -612,7 +612,7 @@
       image-rendering: crisp-edges;
     }
 
-    /* 아이템 상태 정보 그룹 스타일[cite: 16] */
+    /* 아이템 상태 정보 그룹 스타일[cite: 13] */
     #item-status-group {
       position: absolute;
       top: 826px;
@@ -629,7 +629,7 @@
       pointer-events: none;
     }
 
-    /* 상태 항목 및 아이콘 스타일[cite: 16] */
+    /* 상태 항목 및 아이콘 스타일[cite: 13] */
     .status-item {
       display: flex;
       flex-direction: column;
@@ -809,7 +809,7 @@
       word-break: keep-all;
     }
 
-    /* 하단 바[cite: 16] */
+    /* 하단 바[cite: 13] */
     #bottom-bar {
       position: absolute;
       bottom: 0;
@@ -824,7 +824,7 @@
       padding: 0 20px;
     }
 
-    /* 편지 버튼 (좌측 끝)[cite: 16] */
+    /* 편지 버튼 (좌측 끝)[cite: 13] */
     #letter-btn {
       width: 30px;
       height: 30px;
@@ -852,7 +852,7 @@
       pointer-events: none;
     }
 
-    /* 우측 박스 메뉴 버튼[cite: 16] */
+    /* 우측 박스 메뉴 버튼[cite: 13] */
     #toggle-btn {
       width: 30px;
       height: 30px;
@@ -889,10 +889,10 @@
     <img id="bed-img" src="dd_bed.png" alt="DD Bed">
     <img id="ring-img" src="dd_ring.png" alt="Ring">
     
-    <!-- 첫 화면 이미지 트리거[cite: 16] -->
+    <!-- 첫 화면 이미지 트리거[cite: 13] -->
     <img id="message-trigger" src="dd_message_animation/1.png" alt="Message Trigger">
 
-    <!-- 팝업창[cite: 16] -->
+    <!-- 팝업창[cite: 13] -->
     <div id="message-popup">20XX년 XX월 XX일
 
 부디 제가 어떠한 미련도 없이 삶을 떠날 수 있었기를 바랍니다.
@@ -920,7 +920,7 @@
       <div class="menu-item" data-action="cancel">취소</div>
     </div>
 
-    <!-- 박스 레이어 (z-index: 100)[cite: 16] -->
+    <!-- 박스 레이어 (z-index: 100)[cite: 13] -->
     <div id="box-panel">
       <img id="box-bg-img" src="dd_box.png" alt="Box Background">
 
@@ -946,7 +946,7 @@
           </div>
         </div>
 
-        <!-- 좌측 텍스트 그룹[cite: 16] -->
+        <!-- 좌측 텍스트 그룹[cite: 13] -->
         <div class="detail-left" id="detail-left">
           <div class="detail-text-group">
             <div class="item-path" id="view-path"></div>
@@ -955,7 +955,7 @@
           <div class="item-image-wrapper">
             <img id="view-image" src="" alt="" style="display: none;">
           </div>
-          <!-- 아이템 상태 정보 그룹[cite: 16] -->
+          <!-- 아이템 상태 정보 그룹[cite: 13] -->
           <div id="item-status-group">
             <div class="status-item">
               <img id="status-sale-icon" class="status-icon" src="" alt="" style="display: none;">
@@ -972,7 +972,7 @@
               <span class="status-text" id="status-discard">???</span>
             </div>
           </div>
-          <!-- "선물받음" 뱃지[cite: 16] -->
+          <!-- "선물받음" 뱃지[cite: 13] -->
           <div id="gift-badge">선물받음</div>
         </div>
       </div>
@@ -997,7 +997,7 @@
       </div>
     </div>
 
-    <!-- 하단 바[cite: 16] -->
+    <!-- 하단 바[cite: 13] -->
     <div id="bottom-bar">
       <button id="letter-btn" aria-label="메시지 다시 보기">
         <img src="dd_letter.png" alt="Letter">
@@ -1073,7 +1073,7 @@
       }, duration);
     }
 
-    /* 애니메이션 프레임 사전 로드[cite: 16] */
+    /* 애니메이션 프레임 사전 로드[cite: 13] */
     const messageAnimationFrames = [];
     for (let i = 1; i <= 5; i++) {
       const img = new Image();
@@ -1108,7 +1108,7 @@
       }, 100);
     });
 
-    /* 하단 편지 버튼 클릭 시 메시지 팝업 다시 출력[cite: 16] */
+    /* 하단 편지 버튼 클릭 시 메시지 팝업 다시 출력[cite: 13] */
     letterBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       messagePopup.classList.add('show');
@@ -1191,7 +1191,7 @@
 
           if (!rowData.id || !rowData.name) continue;
 
-          /* 침대에서 튀어나오는 아이템들의 데이터베이스 경로를 dd_image 폴더로 고정[cite: 16] */
+          /* 침대에서 튀어나오는 아이템들의 데이터베이스 경로를 dd_image 폴더로 고정[cite: 13] */
           const imagePath = `dd_image/${rowData.id}.png`;
 
           itemDataMap[rowData.id] = rowData.name;
@@ -1578,7 +1578,7 @@
 
     function spawnItem() {
       if (remainingItemList.length === 0) {
-        showAlert("남겨진 것들을 살펴보는 중입니다.", 1000);[cite: 16]
+        showAlert("남겨진 것들을 살펴보는 중입니다.");
         return false;
       }
 
@@ -1595,7 +1595,7 @@
         bottom: bedCenterY + (bedH / 2)
       };
 
-      /* [수정됨] 이미지들이 침대 중앙(또는 침대 몸체 바로 위)에서 생성되도록 설정 */
+      /* 침대 중앙(침대 위치)에서 생성되어 바깥으로 퍼져나가도록 설정[cite: 13] */
       const startX = bedCenterX;
       const startY = bedCenterY;
 
@@ -1613,9 +1613,8 @@
       while (attempts < 600 && !validPositionFound) {
         const direction = Math.random() < 0.5 ? -1 : 1;
         
-        /* [수정됨] 최소 거리와 최대 거리를 침대 근처에서부터 바깥으로 넓게 퍼지도록 조정 (최소 10px부터 시작) */
-        finalDropX = (10 + Math.random() * 550) * direction;
-        finalDropY = -50 + Math.random() * 400; 
+        finalDropX = (50 + Math.random() * 680) * direction;
+        finalDropY = -90 + Math.random() * 480; 
         finalRotation = (Math.random() - 0.5) * 60;
 
         const targetX = bedCenterX + finalDropX;
@@ -1629,7 +1628,7 @@
         };
 
         const overlapsBlackBackground = candidateBound.top < minTopY;
-        const overlapsBed = isOverlapping(candidateBound, bedBound, 10);
+        const overlapsBed = isOverlapping(candidateBound, bedBound, 15);
         
         let hasExcessiveOverlap = false;
         for (const pb of placedBounds) {
@@ -1647,7 +1646,7 @@
       }
 
       if (!validPositionFound) {
-        showAlert("...", 1000);[cite: 16]
+        showAlert("...");
         return false;
       }
 
@@ -1671,10 +1670,8 @@
       item.style.setProperty('--drop-y', `${finalDropY}px`);
       item.style.setProperty('--rot', `${finalRotation}deg`);
 
-      /* [수정됨] 침대 중앙 위치에서 아주 작은 크기(scale 0.1)로 생성 시작 */
       item.style.left = `${startX}px`;
       item.style.top = `${startY}px`;
-      item.style.transform = 'translate(-50%, -50%) scale(0.1)';
 
       item.addEventListener('mouseenter', (e) => {
         isHoveringItem = true;
@@ -1723,7 +1720,6 @@
 
       container.appendChild(item);
 
-      /* [수정됨] 침대 안에서부터 바깥쪽 위치로 퍼져나가며 최종 크기로 커지는 애니메이션 실행 */
       requestAnimationFrame(() => {
         item.style.transform = `translate(-50%, -50%) translate(${finalDropX}px, ${finalDropY}px) scale(2.4) rotate(${finalRotation}deg)`;
       });
@@ -1750,7 +1746,7 @@
       if (!action || !currentActiveItem) return;
 
       if (action === 'store') {
-        showAlert("드랍된 아이템을 상자에 넣어두었다.", 1000);[cite: 16]
+        showAlert("드랍된 아이템을 상자에 넣어두었다.", 1000);
         
         const targetItem = currentActiveItem;
         
@@ -1777,7 +1773,7 @@
         }
 
       } else if (action === 'discard') {
-        showAlert("버리기를 원하지 않는다.", 1000);[cite: 16]
+        showAlert("버리기를 원하지 않는다.", 1000);
         
         const targetItem = currentActiveItem;
         hideMenuAndTooltip();
@@ -1802,12 +1798,12 @@
       clickTimes = clickTimes.filter(t => now - t <= 1000);
 
       if (clickTimes.length >= 3) {
-        showAlert("깨울 수 없는 것 같다.", 1000);[cite: 16]
+        showAlert("깨울 수 없는 것 같다.");
         return;
       }
 
       if (isCooldown) {
-        showAlert("...", 1000);[cite: 16]
+        showAlert("...");
         return;
       }
 
