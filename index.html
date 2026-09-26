@@ -224,7 +224,7 @@
       transition: none;
     }
 
-    /* 드랍되는 유품 아이템 */
+    /* 드랍되는 유품 아이템 (침대 부근에서 작은 크기로 시작해 퍼져나가도록 수정) */
     .dropped-item {
       position: absolute;
       width: auto;
@@ -233,7 +233,7 @@
       image-rendering: crisp-edges;
       z-index: 20;
       transform-origin: center center;
-      transform: translate(-50%, -50%) scale(2.4);
+      transform: translate(-50%, -50%) scale(0.3);
       transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
       cursor: url('dd_1/dd_cursor1-1.png'), pointer !important;
     }
@@ -1579,17 +1579,21 @@
         return false;
       }
 
-      const startX = 960 + 8;
-      const startY = 540;
+      const bedCenterX = 960 + 8;
+      const bedCenterY = 540;
+
+      // 침대 부근 영역에서 아이템이 시작되도록 설정 (침대 안쪽 범위 내 무작위 시작점)
+      const startX = bedCenterX + (Math.random() - 0.5) * 100;
+      const startY = bedCenterY + (Math.random() - 0.5) * 60;
 
       const bedW = (bedImg.naturalHeight || 90) * 2.4;
       const bedH = (bedImg.naturalHeight || 176) * 2.4;
 
       const bedBound = {
-        left: startX - (bedW / 2),
-        right: startX + (bedW / 2),
-        top: startY - (bedH / 2),
-        bottom: startY + (bedH / 2)
+        left: bedCenterX - (bedW / 2),
+        right: bedCenterX + (bedW / 2),
+        top: bedCenterY - (bedH / 2),
+        bottom: bedCenterY + (bedH / 2)
       };
 
       let finalDropX = 0;
@@ -1610,8 +1614,8 @@
         finalDropY = -90 + Math.random() * 480; 
         finalRotation = (Math.random() - 0.5) * 60;
 
-        const targetX = startX + finalDropX;
-        const targetY = startY + finalDropY;
+        const targetX = bedCenterX + finalDropX;
+        const targetY = bedCenterY + finalDropY;
 
         const candidateBound = {
           left: targetX - estimatedWidth / 2,
@@ -1710,6 +1714,7 @@
 
       container.appendChild(item);
 
+      // 침대 부근에서부터 커지며 밖으로 튀어나오는 트랜지션 적용
       requestAnimationFrame(() => {
         item.style.transform = `translate(-50%, -50%) translate(${finalDropX}px, ${finalDropY}px) scale(2.4) rotate(${finalRotation}deg)`;
       });
