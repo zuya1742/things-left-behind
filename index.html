@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Things left behind</title>
-  <!-- 갈무리 폰트 불러오기 (Galmuri7, Galmuri9, Galmuri11)[cite: 13] -->
+  <!-- 갈무리 폰트 불러오기 (Galmuri7, Galmuri9, Galmuri11) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css">
-  <!-- Excel 파싱용 SheetJS 라이브러리[cite: 13] -->
+  <!-- Excel 파싱용 SheetJS 라이브러리 -->
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 
   <style>
@@ -33,7 +33,7 @@
       cursor: url('dd_cursor2.png') 0 0, auto !important;
     }
 
-    /* 1920x1080 고정 캔버스 컨테이너[cite: 13] */
+    /* 1920x1080 고정 캔버스 컨테이너 */
     #canvas-container {
       position: absolute;
       width: 1920px;
@@ -48,7 +48,7 @@
       cursor: url('dd_cursor2.png') 0 0, auto !important;
     }
 
-    /* 배경 이미지[cite: 13] */
+    /* 배경 이미지 */
     #bg-img {
       position: absolute;
       top: 50%;
@@ -61,7 +61,7 @@
       pointer-events: none;
     }
 
-    /* 1. 화면 전체 검정 투명도 70% 오버레이 사각형[cite: 13] */
+    /* 1. 화면 전체 검정 투명도 70% 오버레이 사각형 */
     #screen-overlay {
       position: absolute;
       top: 0;
@@ -79,7 +79,7 @@
       opacity: 0.7;
     }
 
-    /* 중앙 침대 이미지[cite: 13] */
+    /* 중앙 침대 이미지 */
     #bed-img {
       position: absolute;
       top: 50%;
@@ -101,7 +101,7 @@
       cursor: url('dd_cursor2.png') 0 0, pointer !important;
     }
 
-    /* 침대 바로 위 중앙 링 이미지[cite: 13] */
+    /* 침대 바로 위 중앙 링 이미지 */
     #ring-img {
       position: absolute;
       left: 50%;
@@ -125,7 +125,7 @@
       }
     }
 
-    /* 첫 화면 이미지 트리거 위치[cite: 13] */
+    /* 첫 화면 이미지 트리거 위치 */
     #message-trigger {
       position: absolute;
       left: 960px;
@@ -160,7 +160,7 @@
       pointer-events: none;
     }
 
-    /* 팝업창 스타일[cite: 13] */
+    /* 팝업창 스타일 */
     #message-popup {
       position: absolute;
       left: 50%;
@@ -195,7 +195,7 @@
       pointer-events: auto;
     }
 
-    /* 경고 텍스트 박스[cite: 13] */
+    /* 경고 텍스트 박스 */
     #alert-box {
       position: absolute;
       top: calc(28% - 63px);
@@ -224,7 +224,7 @@
       transition: none;
     }
 
-    /* 드랍되는 유품 아이템[cite: 13] */
+    /* 드랍되는 유품 아이템 */
     .dropped-item {
       position: absolute;
       width: auto;
@@ -252,7 +252,7 @@
       40%, 80% { transform: translate(-50%, -50%) translate(var(--drop-x), var(--drop-y)) scale(2.4) rotate(var(--rot)) translateX(3px); }
     }
 
-    /* 마우스 호버 툴팁 박스[cite: 13] */
+    /* 마우스 호버 툴팁 박스 */
     #item-tooltip {
       position: absolute;
       background-color: rgba(0, 0, 0, 0.85);
@@ -267,7 +267,7 @@
       white-space: nowrap;
     }
 
-    /* 아이템 클릭 시 우하단에 뜨는 메뉴[cite: 13] */
+    /* 아이템 클릭 시 우하단에 뜨는 메뉴 */
     #item-menu {
       position: absolute;
       background-color: rgba(0, 0, 0, 0.85);
@@ -295,7 +295,7 @@
       background-color: rgba(255, 255, 255, 0.2);
     }
 
-    /* 슬라이드 박스 패널 (z-index: 100)[cite: 13] */
+    /* 슬라이드 박스 패널 (z-index: 100) */
     #box-panel {
       position: absolute;
       top: 515px; 
@@ -339,7 +339,7 @@
       z-index: 2;
     }
 
-    /* "선물받음" 뱃지 스타일[cite: 13] */
+    /* "선물받음" 뱃지 스타일 */
     #gift-badge {
       position: absolute;
       top: 40.4px;
@@ -589,7 +589,7 @@
       width: 100%;
     }
 
-    /* 팝업 아이템 이미지 위치 스타일[cite: 13] */
+    /* 팝업 아이템 이미지 위치 스타일 */
     .item-image-wrapper {
       position: absolute;
       top: 425px;
@@ -612,7 +612,7 @@
       image-rendering: crisp-edges;
     }
 
-    /* 아이템 상태 정보 그룹 스타일[cite: 13] */
+    /* 아이템 상태 정보 그룹 스타일 */
     #item-status-group {
       position: absolute;
       top: 826px;
@@ -629,7 +629,7 @@
       pointer-events: none;
     }
 
-    /* 상태 항목 및 아이콘 스타일[cite: 13] */
+    /* 상태 항목 및 아이콘 스타일 */
     .status-item {
       display: flex;
       flex-direction: column;
@@ -809,7 +809,7 @@
       word-break: keep-all;
     }
 
-    /* 하단 바[cite: 13] */
+    /* 하단 바 */
     #bottom-bar {
       position: absolute;
       bottom: 0;
@@ -824,7 +824,7 @@
       padding: 0 20px;
     }
 
-    /* 편지 버튼 (좌측 끝)[cite: 13] */
+    /* 편지 버튼 (좌측 끝) */
     #letter-btn {
       width: 30px;
       height: 30px;
@@ -852,7 +852,7 @@
       pointer-events: none;
     }
 
-    /* 우측 박스 메뉴 버튼[cite: 13] */
+    /* 우측 박스 메뉴 버튼 */
     #toggle-btn {
       width: 30px;
       height: 30px;
@@ -889,10 +889,10 @@
     <img id="bed-img" src="dd_bed.png" alt="DD Bed">
     <img id="ring-img" src="dd_ring.png" alt="Ring">
     
-    <!-- 첫 화면 이미지 트리거[cite: 13] -->
+    <!-- 첫 화면 이미지 트리거 -->
     <img id="message-trigger" src="dd_message_animation/1.png" alt="Message Trigger">
 
-    <!-- 팝업창[cite: 13] -->
+    <!-- 팝업창 -->
     <div id="message-popup">20XX년 XX월 XX일
 
 부디 제가 어떠한 미련도 없이 삶을 떠날 수 있었기를 바랍니다.
@@ -920,7 +920,7 @@
       <div class="menu-item" data-action="cancel">취소</div>
     </div>
 
-    <!-- 박스 레이어 (z-index: 100)[cite: 13] -->
+    <!-- 박스 레이어 (z-index: 100) -->
     <div id="box-panel">
       <img id="box-bg-img" src="dd_box.png" alt="Box Background">
 
@@ -946,7 +946,7 @@
           </div>
         </div>
 
-        <!-- 좌측 텍스트 그룹[cite: 13] -->
+        <!-- 좌측 텍스트 그룹 -->
         <div class="detail-left" id="detail-left">
           <div class="detail-text-group">
             <div class="item-path" id="view-path"></div>
@@ -955,7 +955,7 @@
           <div class="item-image-wrapper">
             <img id="view-image" src="" alt="" style="display: none;">
           </div>
-          <!-- 아이템 상태 정보 그룹[cite: 13] -->
+          <!-- 아이템 상태 정보 그룹 -->
           <div id="item-status-group">
             <div class="status-item">
               <img id="status-sale-icon" class="status-icon" src="" alt="" style="display: none;">
@@ -972,7 +972,7 @@
               <span class="status-text" id="status-discard">???</span>
             </div>
           </div>
-          <!-- "선물받음" 뱃지[cite: 13] -->
+          <!-- "선물받음" 뱃지 -->
           <div id="gift-badge">선물받음</div>
         </div>
       </div>
@@ -997,7 +997,7 @@
       </div>
     </div>
 
-    <!-- 하단 바[cite: 13] -->
+    <!-- 하단 바 -->
     <div id="bottom-bar">
       <button id="letter-btn" aria-label="메시지 다시 보기">
         <img src="dd_letter.png" alt="Letter">
@@ -1073,7 +1073,20 @@
       }, duration);
     }
 
-    /* 애니메이션 프레임 사전 로드[cite: 13] */
+    /* 파일 로드 실패 및 잔여 아이템 소진 시 호출되는 경고 함수 (등록된 유품 여부 반영 및 1초 연장) */
+    function showFileLoadErrorAlert() {
+      const messages = [
+        "남겨진 것들을 살펴보는 중이다.",
+        "물건의 먼지를 터는 중이다."
+      ];
+      if (storedItemIds.size > 0) {
+        messages.push("잠시 기억을 더듬는 중이다.");
+      }
+      const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+      showAlert(randomMsg, 2000);
+    }
+
+    /* 애니메이션 프레임 사전 로드 */
     const messageAnimationFrames = [];
     for (let i = 1; i <= 5; i++) {
       const img = new Image();
@@ -1108,7 +1121,7 @@
       }, 100);
     });
 
-    /* 하단 편지 버튼 클릭 시 메시지 팝업 다시 출력[cite: 13] */
+    /* 하단 편지 버튼 클릭 시 메시지 팝업 다시 출력 */
     letterBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       messagePopup.classList.add('show');
@@ -1191,7 +1204,7 @@
 
           if (!rowData.id || !rowData.name) continue;
 
-          /* 침대에서 튀어나오는 아이템들의 데이터베이스 경로를 dd_image 폴더로 고정[cite: 13] */
+          /* 침대에서 튀어나오는 아이템들의 데이터베이스 경로를 dd_image 폴더로 고정 */
           const imagePath = `dd_image/${rowData.id}.png`;
 
           itemDataMap[rowData.id] = rowData.name;
@@ -1214,7 +1227,7 @@
         renderCategoryTrees(categoryMap);
       } catch (error) {
         console.warn('dd_list.xlsx 로드 또는 파싱 실패:', error);
-        showAlert("남겨진 것들을 살펴보는 중입니다.");
+        showFileLoadErrorAlert();
       }
     }
 
@@ -1579,7 +1592,7 @@
 
     function spawnItem() {
       if (remainingItemList.length === 0) {
-        showAlert("남겨진 것들을 살펴보는 중입니다.");
+        showFileLoadErrorAlert();
         return false;
       }
 
@@ -1596,7 +1609,7 @@
         bottom: bedCenterY + (bedH / 2)
       };
 
-      /* 침대 중앙(침대 위치)에서 생성되어 바깥으로 퍼져나가도록 설정[cite: 13] */
+      /* 침대 중앙(침대 위치)에서 생성되어 바깥으로 퍼져나가도록 설정 */
       const startX = bedCenterX;
       const startY = bedCenterY;
 
@@ -1666,7 +1679,7 @@
       /* 파일 로드 실패 시 아이템을 제거하고 침대 위에 경고창 출력 */
       item.onerror = () => {
         item.remove();
-        showAlert("남겨진 것들을 살펴보는 중입니다.");
+        showFileLoadErrorAlert();
       };
 
       item.style.setProperty('--drop-x', `${finalDropX}px`);
