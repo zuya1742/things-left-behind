@@ -1584,9 +1584,6 @@
       const bedCenterX = 960 + 8;
       const bedCenterY = 540;
 
-      const startX = bedCenterX + (Math.random() - 0.5) * 100;
-      const startY = bedCenterY + (Math.random() - 0.5) * 60;
-
       const bedW = (bedImg.naturalHeight || 90) * 2.4;
       const bedH = (bedImg.naturalHeight || 176) * 2.4;
 
@@ -1596,6 +1593,10 @@
         top: bedCenterY - (bedH / 2),
         bottom: bedCenterY + (bedH / 2)
       };
+
+      // 시작점이 침대 이미지 영역 내에 위치하도록 설정 (무조건 겹치게 함)
+      const startX = bedBound.left + Math.random() * (bedBound.right - bedBound.left);
+      const startY = bedBound.top + Math.random() * (bedBound.bottom - bedBound.top);
 
       let finalDropX = 0;
       let finalDropY = 0;
@@ -1805,6 +1806,7 @@
       const success = spawnItem();
 
       if (!success) {
+        showAlert("남겨진 것들을 살펴보는 중입니다.");
         return;
       }
 
