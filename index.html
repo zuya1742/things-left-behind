@@ -1153,6 +1153,16 @@
       });
     }
 
+    // 이미지 파일 존재 여부 확인용 헬퍼 함수
+    function checkImageExists(url) {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        img.src = url;
+      });
+    }
+
     async function loadExcelData() {
       try {
         const response = await fetch(`dd_list.xlsx?t=${Date.now()}`);
@@ -1189,16 +1199,15 @@
             discardable: row[14] ? String(row[14]).trim().toLowerCase() : ''
           };
 
-          if (rowData.id && rowData.name) {
-            itemDataMap[rowData.id] = rowData.name;
-          }
+          if (!rowData.id || !rowData.name) continue;
 
-          // dd_image 폴더의 이미지를 베이스로 바로 등록 (불필요한 존재 확인 및 404 경고 제거)
-          if (rowData.id) {
-            itemList.push(`dd_image/${rowData.id}.png`);
-          }
+          // dd_image 폴더에 실제 이미지 파일이 존재하는지 확인 후 등록
+          const imagePath = `dd_image/${rowData.id}.png`;
+          const imageExists = await checkImageExists(imagePath);
+          if (!imageExists) continue;
 
-          if (!rowData.category || !rowData.name) continue;
+          itemDataMap[rowData.id] = rowData.name;
+          itemList.push(imagePath);
 
           fullDataStore.push(rowData);
 
