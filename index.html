@@ -26,11 +26,11 @@
       justify-content: center;
       align-items: center;
       font-family: 'Galmuri7', sans-serif;
-      cursor: url('dd_1/dd_cursor1.png') 0 0, auto;
+      cursor: url('dd_cursor1.png') 0 0, auto;
     }
 
     html:active, body:active {
-      cursor: url('dd_1/dd_cursor2.png') 0 0, auto !important;
+      cursor: url('dd_cursor2.png') 0 0, auto !important;
     }
 
     /* 1920x1080 고정 캔버스 컨테이너 */
@@ -41,11 +41,11 @@
       overflow: hidden;
       transform-origin: center center;
       background-color: #000000;
-      cursor: url('dd_1/dd_cursor1.png') 0 0, auto;
+      cursor: url('dd_cursor1.png') 0 0, auto;
     }
 
     #canvas-container:active {
-      cursor: url('dd_1/dd_cursor2.png') 0 0, auto !important;
+      cursor: url('dd_cursor2.png') 0 0, auto !important;
     }
 
     /* 배경 이미지 */
@@ -93,12 +93,12 @@
       image-rendering: pixelated;
       image-rendering: crisp-edges;
       z-index: 10;
-      cursor: url('dd_1/dd_cursor1-1.png') 0 0, pointer !important;
+      cursor: url('dd_cursor1-1.png') 0 0, pointer !important;
     }
 
     #bed-img:active {
       filter: brightness(0.75);
-      cursor: url('dd_1/dd_cursor2.png') 0 0, pointer !important;
+      cursor: url('dd_cursor2.png') 0 0, pointer !important;
     }
 
     /* 침대 바로 위 중앙 링 이미지 */
@@ -138,12 +138,12 @@
       image-rendering: pixelated;
       image-rendering: crisp-edges;
       animation: messageFloat 3s ease-in-out infinite;
-      cursor: url('dd_1/dd_cursor1-1.png') 0 0, pointer !important;
+      cursor: url('dd_cursor1-1.png') 0 0, pointer !important;
       transition: opacity 0.4s ease;
     }
 
     #message-trigger:active {
-      cursor: url('dd_1/dd_cursor2.png') 0 0, pointer !important;
+      cursor: url('dd_cursor2.png') 0 0, pointer !important;
     }
 
     @keyframes messageFloat {
@@ -187,7 +187,7 @@
       white-space: pre-wrap;
       word-break: keep-all;
       overflow-y: auto;
-      cursor: url('dd_1/dd_cursor1.png') 0 0, auto;
+      cursor: url('dd_cursor1.png') 0 0, auto;
     }
 
     #message-popup.show {
@@ -235,11 +235,11 @@
       transform-origin: center center;
       transform: translate(-50%, -50%) scale(0.3);
       transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-      cursor: url('dd_1/dd_cursor1-1.png') 0 0, pointer !important;
+      cursor: url('dd_cursor1-1.png') 0 0, pointer !important;
     }
 
     .dropped-item:active {
-      cursor: url('dd_1/dd_cursor2.png') 0 0, pointer !important;
+      cursor: url('dd_cursor2.png') 0 0, pointer !important;
     }
 
     .dropped-item.shaking {
@@ -283,12 +283,12 @@
     }
 
     #item-menu .menu-item {
-      cursor: url('dd_1/dd_cursor1-1.png') 0 0, pointer !important;
+      cursor: url('dd_cursor1-1.png') 0 0, pointer !important;
       padding: 2px 4px;
     }
 
     #item-menu .menu-item:active {
-      cursor: url('dd_1/dd_cursor2.png') 0 0, pointer !important;
+      cursor: url('dd_cursor2.png') 0 0, pointer !important;
     }
 
     #item-menu .menu-item:hover {
@@ -434,7 +434,7 @@
 
     .index-title, .tree-title, .tree-leaf {
       position: relative;
-      cursor: url('dd_1/dd_cursor1-1.png') 0 0, pointer !important;
+      cursor: url('dd_cursor1-1.png') 0 0, pointer !important;
       user-select: none;
       box-sizing: border-box;
       display: flex;
@@ -442,7 +442,7 @@
     }
 
     .index-title:active, .tree-title:active, .tree-leaf:active {
-      cursor: url('dd_1/dd_cursor2.png') 0 0, pointer !important;
+      cursor: url('dd_cursor2.png') 0 0, pointer !important;
     }
 
     .index-title::before,
@@ -830,7 +830,7 @@
       height: 30px;
       background-color: transparent;
       border: none;
-      cursor: url('dd_1/dd_cursor1-1.png') 0 0, pointer !important;
+      cursor: url('dd_cursor1-1.png') 0 0, pointer !important;
       position: relative;
       display: flex;
       align-items: center;
@@ -839,7 +839,7 @@
     }
 
     #letter-btn:active {
-      cursor: url('dd_1/dd_cursor2.png') 0 0, pointer !important;
+      cursor: url('dd_cursor2.png') 0 0, pointer !important;
     }
 
     #letter-btn img {
@@ -858,7 +858,7 @@
       height: 30px;
       background-color: transparent;
       border: none;
-      cursor: url('dd_1/dd_cursor1-1.png') 0 0, pointer !important;
+      cursor: url('dd_cursor1-1.png') 0 0, pointer !important;
       position: relative;
       display: flex;
       align-items: center;
@@ -867,7 +867,7 @@
     }
 
     #toggle-btn:active {
-      cursor: url('dd_1/dd_cursor2.png') 0 0, pointer !important;
+      cursor: url('dd_cursor2.png') 0 0, pointer !important;
     }
 
     #toggle-btn img {
@@ -1153,16 +1153,6 @@
       });
     }
 
-    // 이미지 존재 여부 비동기 확인 함수
-    function checkImageExists(url) {
-      return new Promise((resolve) => {
-        const img = new Image();
-        img.onload = () => resolve(true);
-        img.onerror = () => resolve(false);
-        img.src = url;
-      });
-    }
-
     async function loadExcelData() {
       try {
         const response = await fetch(`dd_list.xlsx?t=${Date.now()}`);
@@ -1201,6 +1191,7 @@
 
           if (!rowData.id || !rowData.name) continue;
 
+          // 침대에서 튀어나오는 아이템들의 데이터베이스 경로를 dd_image 폴더로 고정
           const imagePath = `dd_image/${rowData.id}.png`;
 
           itemDataMap[rowData.id] = rowData.name;
@@ -1219,25 +1210,8 @@
 
         globalCategoryMap = categoryMap;
 
-        // [수정] 로드 직후부터 클릭 시 아이템이 바로 나오도록 즉시 초기화
         remainingItemList = [...itemList];
         renderCategoryTrees(categoryMap);
-
-        // 비동기로 존재하는 이미지를 판별하여 우선순위 재정렬
-        const validItems = [];
-        const invalidItems = [];
-
-        for (const path of itemList) {
-          const exists = await checkImageExists(path);
-          if (exists) {
-            validItems.push(path);
-          } else {
-            invalidItems.push(path);
-          }
-        }
-
-        // 이미 드랍되지 않은 잔여 목록에 반영
-        remainingItemList = [...validItems, ...invalidItems];
       } catch (error) {
         console.warn('dd_list.xlsx 로드 또는 파싱 실패:', error);
       }
