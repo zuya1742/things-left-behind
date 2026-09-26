@@ -1153,16 +1153,6 @@
       });
     }
 
-    // 이미지 파일 존재 여부 확인용 헬퍼 함수
-    function checkImageExists(url) {
-      return new Promise((resolve) => {
-        const img = new Image();
-        img.onload = () => resolve(true);
-        img.onerror = () => resolve(false);
-        img.src = url;
-      });
-    }
-
     async function loadExcelData() {
       try {
         const response = await fetch(`dd_list.xlsx?t=${Date.now()}`);
@@ -1201,10 +1191,7 @@
 
           if (!rowData.id || !rowData.name) continue;
 
-          // dd_image 폴더에 실제 이미지 파일이 존재하는지 확인 후 등록
           const imagePath = `dd_image/${rowData.id}.png`;
-          const imageExists = await checkImageExists(imagePath);
-          if (!imageExists) continue;
 
           itemDataMap[rowData.id] = rowData.name;
           itemList.push(imagePath);
@@ -1589,7 +1576,6 @@
 
     function spawnItem() {
       if (remainingItemList.length === 0) {
-        showAlert("더 이상 꺼낼 유품이 없다.");
         return false;
       }
 
@@ -1665,6 +1651,9 @@
       item.classList.add('dropped-item');
       item.setAttribute('data-item-id', itemId);
       item.style.pointerEvents = 'none';
+      item.onerror = () => {
+        item.remove();
+      };
 
       item.style.setProperty('--drop-x', `${finalDropX}px`);
       item.style.setProperty('--drop-y', `${finalDropY}px`);
