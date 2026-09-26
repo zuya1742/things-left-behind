@@ -1214,6 +1214,7 @@
         renderCategoryTrees(categoryMap);
       } catch (error) {
         console.warn('dd_list.xlsx 로드 또는 파싱 실패:', error);
+        showAlert("남겨진 것들을 살펴보는 중입니다.");
       }
     }
 
@@ -1662,8 +1663,10 @@
       item.setAttribute('data-item-id', itemId);
       item.style.pointerEvents = 'none';
       
+      /* 파일 로드 실패 시 아이템을 제거하고 침대 위에 경고창 출력 */
       item.onerror = () => {
         item.remove();
+        showAlert("남겨진 것들을 살펴보는 중입니다.");
       };
 
       item.style.setProperty('--drop-x', `${finalDropX}px`);
