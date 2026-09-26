@@ -1075,7 +1075,7 @@
       }, duration);
     }
 
-    // 애니메이션 프레임 사전 로드 (상대 경로 수정)
+    // 애니메이션 프레임 사전 로드
     const messageAnimationFrames = [];
     for (let i = 1; i <= 5; i++) {
       const img = new Image();
@@ -1155,15 +1155,6 @@
       });
     }
 
-    function checkImageExists(url) {
-      return new Promise((resolve) => {
-        const img = new Image();
-        img.onload = () => resolve(true);
-        img.onerror = () => resolve(false);
-        img.src = url;
-      });
-    }
-
     async function loadExcelData() {
       try {
         const response = await fetch(`dd_list.xlsx?t=${Date.now()}`);
@@ -1175,6 +1166,8 @@
         const worksheet = workbook.Sheets[firstSheetName];
         const rows = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
         const categoryMap = {};
+
+        itemList = [];
 
         for (let i = 1; i < rows.length; i++) {
           const row = rows[i];
@@ -1206,6 +1199,11 @@
 
           fullDataStore.push(rowData);
 
+          // 엑셀에 등록된 아이템 ID를 바탕으로 이미지 경로 바로 생성 (존재 검사 생략)
+          if (rowData.id) {
+            itemList.push(`dd_image/${rowData.id}.png`);
+          }
+
           if (!categoryMap[rowData.category]) {
             categoryMap[rowData.category] = [];
           }
@@ -1216,17 +1214,6 @@
         }
 
         globalCategoryMap = categoryMap;
-
-        itemList = [];
-        for (const item of fullDataStore) {
-          if (!item.id) continue;
-          const imgPath = `dd_image/${item.id}.png`;
-          const exists = await checkImageExists(imgPath);
-          if (exists) {
-            itemList.push(imgPath);
-          }
-        }
-
         remainingItemList = [...itemList];
         renderCategoryTrees(categoryMap);
       } catch (error) {
@@ -1240,20 +1227,6 @@
       }
       for (const key of Object.keys(nodeObj._children)) {
         if (hasNewStoredItem(nodeObj._children[key])) {
-          return true;
-        }
-      }
-      return false;
-    }
-
-    function hasAnyStoredItem(nodeObj) {
-      if (nodeObj._isLeaf) {
-        return nodeObj._data && storedItemIds.has(nodeObj._data.id);
-      }
-      const keys = Object.keys(nodeObj._children);
-      if (keys.length === 0) return false;
-      for (const key of keys) {
-        if (hasAnyStoredItem(nodeObj._children[key])) {
           return true;
         }
       }
