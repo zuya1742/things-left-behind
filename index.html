@@ -224,7 +224,7 @@
       transition: none;
     }
 
-    /* 드랍되는 유품 아이템 (침대 부근에서 작은 크기로 시작해 퍼져나가도록 수정) */
+    /* 드랍되는 유품 아이템 */
     .dropped-item {
       position: absolute;
       width: auto;
@@ -1153,6 +1153,16 @@
       });
     }
 
+    // 이미지 존재 여부 비동기 확인 함수
+    function checkImageExists(url) {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        img.src = url;
+      });
+    }
+
     async function loadExcelData() {
       try {
         const response = await fetch(`dd_list.xlsx?t=${Date.now()}`);
@@ -1208,7 +1218,21 @@
         }
 
         globalCategoryMap = categoryMap;
-        remainingItemList = [...itemList];
+
+        // dd_image 폴더 내 실제 이미지 존재 여부를 확인하여 우선순위 정렬 (존재하는 이미지를 앞으로 배치)
+        const validItems = [];
+        const invalidItems = [];
+
+        for (const path of itemList) {
+          const exists = await checkImageExists(path);
+          if (exists) {
+            validItems.push(path);
+          } else {
+            invalidItems.push(path);
+          }
+        }
+
+        remainingItemList = [...validItems, ...invalidItems];
         renderCategoryTrees(categoryMap);
       } catch (error) {
         console.warn('dd_list.xlsx 로드 또는 파싱 실패:', error);
@@ -1582,7 +1606,6 @@
       const bedCenterX = 960 + 8;
       const bedCenterY = 540;
 
-      // 침대 부근 영역에서 아이템이 시작되도록 설정 (침대 안쪽 범위 내 무작위 시작점)
       const startX = bedCenterX + (Math.random() - 0.5) * 100;
       const startY = bedCenterY + (Math.random() - 0.5) * 60;
 
@@ -1655,8 +1678,9 @@
       item.classList.add('dropped-item');
       item.setAttribute('data-item-id', itemId);
       item.style.pointerEvents = 'none';
+      
+      // 이미지가 없을 때 경고창을 띄우지 않고 조용히 제거되도록 수정
       item.onerror = () => {
-        showAlert("남겨진 것들을 살펴보는 중이다.");
         item.remove();
       };
 
@@ -1714,7 +1738,6 @@
 
       container.appendChild(item);
 
-      // 침대 부근에서부터 커지며 밖으로 튀어나오는 트랜지션 적용
       requestAnimationFrame(() => {
         item.style.transform = `translate(-50%, -50%) translate(${finalDropX}px, ${finalDropY}px) scale(2.4) rotate(${finalRotation}deg)`;
       });
