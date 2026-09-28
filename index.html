@@ -1624,6 +1624,8 @@
       let attempts = 0;
       let validPositionFound = false;
 
+      let candidateBound = null;
+
       while (attempts < 600 && !validPositionFound) {
         const direction = Math.random() < 0.5 ? -1 : 1;
         
@@ -1634,7 +1636,7 @@
         const targetX = bedCenterX + finalDropX;
         const targetY = bedCenterY + finalDropY;
 
-        const candidateBound = {
+        candidateBound = {
           left: targetX - estimatedWidth / 2,
           right: targetX + estimatedWidth / 2,
           top: targetY - estimatedHeight / 2,
@@ -1675,9 +1677,18 @@
       item.classList.add('dropped-item');
       item.setAttribute('data-item-id', itemId);
       item.style.pointerEvents = 'none';
+
+      // 아이템 요소에 해당 영역 데이터 바인딩
+      item._bound = candidateBound;
       
       /* 파일 로드 실패 시 아이템을 제거하고 침대 위에 경고창 출력 */
       item.onerror = () => {
+        if (item._bound) {
+          const bIdx = placedBounds.indexOf(item._bound);
+          if (bIdx !== -1) {
+            placedBounds.splice(bIdx, 1);
+          }
+        }
         item.remove();
         showFileLoadErrorAlert();
       };
@@ -1781,6 +1792,14 @@
         hideMenuAndTooltip();
 
         if (targetItem) {
+          // 보관하기 눌러서 사라질 때 placedBounds 배열에서도 해당 영역 데이터 함께 제거
+          if (targetItem._bound) {
+            const bIdx = placedBounds.indexOf(targetItem._bound);
+            if (bIdx !== -1) {
+              placedBounds.splice(bIdx, 1);
+            }
+          }
+
           targetItem.style.transition = 'opacity 0.5s ease';
           targetItem.style.opacity = '0';
           setTimeout(() => {
@@ -1828,7 +1847,7 @@
       isCooldown = true;
       setTimeout(() => {
         isCooldown = false;
-      }, 2000);
+      }, 1500); // 쿨타임을 1.5초로 단축
     });
 
     function openBoxPanel() {
@@ -1908,3 +1927,4 @@
   </script>
 </body>
 </html>
+```[cite: 15]
