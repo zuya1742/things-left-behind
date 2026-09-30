@@ -1009,8 +1009,8 @@
   </div>
 
   <script>
-    /* 마우스 커서 2.4배 확대 처리 함수 */
-    async function loadScaledCursor(src, scale = 2.4) {
+    /* 마우스 커서 원본(naturalWidth/naturalHeight) 기준 2배 확대 처리 함수 */
+    async function loadScaledCursor(src, scale = 2) {
       return new Promise((resolve) => {
         const img = new Image();
         img.crossOrigin = 'anonymous';
@@ -1032,9 +1032,9 @@
 
     async function initScaledCursors() {
       const [c1, c11, c2] = await Promise.all([
-        loadScaledCursor('dd_cursor1.png', 2.4),
-        loadScaledCursor('dd_cursor1-1.png', 2.4),
-        loadScaledCursor('dd_cursor2.png', 2.4)
+        loadScaledCursor('dd_cursor1.png', 2),
+        loadScaledCursor('dd_cursor1-1.png', 2),
+        loadScaledCursor('dd_cursor2.png', 2)
       ]);
 
       const styleEl = document.createElement('style');
